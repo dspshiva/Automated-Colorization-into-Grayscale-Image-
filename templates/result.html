@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorized Image Result</title>
+    <style>
+        img {
+            max-width: 100px;  /* Set a fixed size for the images */
+            max-height: 100px; /* Ensure the height is also constrained */
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Colorized Image Result</h1>
+    <h3>Original Image</h3>
+    <img src="{{ url_for('static', filename='uploaded_image/' + original.split('/')[-1]) }}" alt="Original Image">
+    
+    <h3>Colorized Image</h3>
+    <img src="{{ url_for('static', filename='output_image/' + output.split('/')[-1]) }}" alt="Colorized Image">
+</body>
+</html>

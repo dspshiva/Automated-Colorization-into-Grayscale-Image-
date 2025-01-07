@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        .preview-image {
+            max-width: 60%;  /* Adjust the percentage as needed */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Your Grayscale Image</h1>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Upload Image</button>
+    </form>
+    {% if original %}
+        <h2>Uploaded Image Preview:</h2>
+        <img src="{{ url_for('static', filename='uploaded_image/' + original.split('/')[-1]) }}" class="preview-image" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
